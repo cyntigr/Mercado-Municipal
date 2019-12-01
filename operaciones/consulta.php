@@ -2,14 +2,21 @@
 
 require_once "../clases/PdoDatabase.php";
 require_once "../clases/Puesto.php";
+require_once "../clases/Sesion.php";
+// obtenemos la instancia de la sesión
+$ses = Sesion::getInstance();
 
+// comprobar si hay una sesión activa
+if (!$ses->checkActiveSession())
+	$ses->redirect("index.php");
+$usr = $ses->getUsuario();
+$id = $usr->getIdUsuario();
 define("MAX_COL", 4);	// número de columnas
-
 
 /*
 	 * Realiza una búsqueda paginada de  series en la base de datos 
 	 */
-function search()
+function search($id)
 {
 	// obtenemos el número de página
 	// si no se nos pasa ninguna, fijamos la primera
@@ -21,9 +28,17 @@ function search()
 
 	// buscamos los puestos
 	$db = PdoDatabase::getInstance("root", "", "mercadomunicipal");
+	if(empty($_GET["favorit"])):
+		$sql = "SELECT * FROM puesto LIMIT ?, ? ;";
+		$parametros = [$ini, $maximo];
+	else:
+		$sql = "SELECT P.idPuesto, P.nombre, P.telefono, P.foto, P.idUsuario, P.infoPuesto FROM puesto P 
+		LEFT JOIN favorito F ON P.idPuesto = F.idPuesto LEFT JOIN
+		usuario U ON F.idUsuario = U.idUsuario WHERE F.idUsuario = ? LIMIT ?,? ";
+		$parametros = [$id,$ini, $maximo];
 
-	$sql = "SELECT * FROM puesto LIMIT ?, ? ;";
-	$parametros = [$ini, $maximo];
+	endif;
+	
 
 	// buscamos los puestos correspondientes a la página actual
 	if ($db->queryPdo($sql, $parametros, true)) :
@@ -34,7 +49,7 @@ function search()
 				?>
 				<div class="col col-lg-3" >
 					<div class="card" style="width:300px">
-						<img class="card-img-top" src="img/<?=$item->getFoto()?>" alt="Card image">
+						<img class="card-img-top" style="height:200px" src="img/<?=$item->getFoto()?>" alt="Card image">
 						<div class="card-body">
 							<h4 class="card-title"><a href="infoPuesto.php?id=<?=$item->getIdPuesto()?>"><?= $item->getNombre() ?></a></h4>
 						</div>
@@ -49,7 +64,5 @@ function search()
 
 	endif;
 }
-
-$cop = $_GET["cop"] ?? 0;
-search();
+search($id);
 ?>

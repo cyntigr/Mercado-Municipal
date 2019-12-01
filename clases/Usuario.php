@@ -8,7 +8,8 @@
 		private $apellido ;
 		private $idTipo ;
         private $telefono ;
-        private $foto ;
+		private $foto ;
+		private $apiKey ;
 
 		/**
 		 */
@@ -30,6 +31,26 @@
 	    public function setIdUsuario($idUsu)
 	    {
 	        $this->idUsuario = $idUsu;
+
+	        return $this;
+		}
+		
+		/**
+	     * @return mixed
+	     */
+	    public function getApi()
+	    {
+	        return $this->apiKey;
+	    }
+
+	    /**
+	     * @param mixed $api
+	     *
+	     * @return self
+	     */
+	    public function setApi($apiKey)
+	    {
+	        $this->apiKey = $apiKey;
 
 	        return $this;
 	    }

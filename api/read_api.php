@@ -56,6 +56,32 @@ function infoGlobal()
 	return $arr;
 }
 
+function infoUsuario($idUsu)
+{
+	// obtenemos información sobre la serie
+	$db = PdoDatabase::getInstance("root", "", "mercadomunicipal");
+	$sql = "SELECT * FROM usuario WHERE idUsuario = ? ; ";
+	$parametros = [$idUsu];
+	if ($db->queryPdo($sql, $parametros)) :
+		$usuario = $db->getObject("Usuario");
+		return [
+			"Id Usuario"       => $usuario->getIdUsuario(),
+			"Nombre"           => $usuario->getNombre(),
+			"Apellidos"        => $usuario->getApellido(),
+			"Email"     	   => $usuario->getEmail(),
+			"Telefono"		   => $usuario->getTelefono(),
+			"Foto"			   => $usuario->getFoto(),
+			"Api"			   => $usuario->getApi()
+		];
+	endif;
+
+	return [
+		"Codigo" => 500,
+		"Mensaje" => "No se encuentra el puesto indicado"
+	];
+
+}
+
 // comprobamos si existe la API_KEY
 $apiKey = $_GET["apiKey"];
 
@@ -70,7 +96,7 @@ $idTwo = $usuario->getIdUsuario();
 $idOne = $db->getObject("Usuario")->getIdUsuario();
 
 //comprobamos que la api coincide con el usuario que la esta utilizando
-if (!$idOne == $idTwo) :
+if (!($idOne == $idTwo)) :
 
 	//Le indicamos al usuario que la api que esta utilizando no está bien
 	$data = [
@@ -82,11 +108,14 @@ else :
 	// Si coinciden los usuarios hacemos la llamada 
 	// si enviamos id nos traemos el puesto en concreto si existe,
 	// y sino enviamos id, nos traemos todos los puestos que tenemos registrados
-	if (empty($_GET["id"])) :
-		$data = infoGlobal();
-	else :
-		$id = $_GET["id"];
+	// si mandamos idUsuario con yes mostramos la info del usuario
+	if (!empty($_GET["id"])) :
+		$id   = $_GET["id"];
 		$data = infoPuesto($id);
+	elseif(empty($_GET["idUsuario"])) :
+		$data = infoGlobal();
+	else:
+		$data = infoUsuario($idTwo);
 	endif;
 
 endif;

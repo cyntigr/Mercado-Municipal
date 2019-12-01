@@ -7,8 +7,8 @@ if (!empty($_POST)) :
     $nom = $_POST["nombre"];
     $ape = $_POST["apellido"];
     $tlf = $_POST["telefono"];
-    if (!isset($_POST["foto"])) :
-        $fot = "img/fondo.jpg";
+    if (empty($_POST["foto"])) :
+        $fot = "tio.jpg";
     else :
         $fot = $_POST["foto"];
     endif;

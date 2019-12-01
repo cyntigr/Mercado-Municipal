@@ -28,7 +28,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#">Favoritos</a>
+					<a class="nav-link" href="favoritos.php">Favoritos</a>
 				</li>
 
 				<li class="nav-item">
