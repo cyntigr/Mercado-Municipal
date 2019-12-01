@@ -8,6 +8,6 @@ Para una proxima ampliación, me gustaría que los usuarios puedan añadir sus p
 **Por Cintia García Ruiz** <br>
 **2º Desarrollo de Aplicaciones Web**
 
-# Página Inicio
+## Página Inicio
 
 
