@@ -1,2 +1,6 @@
 # Mercado-Municipal
-Proyecto DWES
+Proyecto para Desarrollo Web en Entorno Servidor
+* Por Cintia García Ruiz
+* 2º Desarrollo de Aplicaciones Web
+
+
