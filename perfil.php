@@ -34,7 +34,7 @@ if (!empty($_POST)) :
     if ($db->queryPdo($sql, $parametros)) :
         $correcto = "Datos modificados correctamente";
     else :
-        $error = "No se han podido modificar los datos";
+        $error = "No se han modificado los datos";
     endif;
 endif;
 $db = PdoDatabase::getInstance("root", "", "mercadomunicipal");
