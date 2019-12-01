@@ -11,5 +11,8 @@ Para una proxima ampliación, me gustaría que los usuarios puedan añadir sus p
 ## Página Inicio
 En esta página podemos elegir entre iniciar sesión o registro, internamente está oculto el cuadro para iniciar sesión y solo si pulsas iniciar sesión aparece para loguearse:
 
-<img src="capturas/index.png" width="600px">
+<img src="capturas/index.png" width="800px"><br>
+<img src="capturas/iniciar.png" width="800px"><br>
+## Página Registro
+
 
