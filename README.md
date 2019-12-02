@@ -10,7 +10,7 @@ Para poder acceder a la web tenemos este usuario de prueba:<br>
 Contraseña: 12345**<br>
 Para poder acceder a la api tienes que estar logueado y con estos parámetros se pueden hacer las diferentes operaciones:<br>
 * Api: 'buenasPuedeProbarLaApi'<br>
-* Si se pone la dirección con la api-keye te devuelve información de todos los puestos: 
+* Si se pone la dirección con la api-key te devuelve información de todos los puestos: 
 http://localhost/mercadoMunicipal/api/read_api.php?apiKey=buenasPuedeProbarLaApi<br>
 * Si en cambio pones la dirección de la api con el parámetro de id, nos devuelve información de un puesto concreto: http://localhost/mercadoMunicipal/api/read_api.php?apiKey=buenasPuedeProbarLaApi&id=1<br>
 * Y la última operación consulta la información del usuario, si le mandas el parámetro de idUsuario relleno:
