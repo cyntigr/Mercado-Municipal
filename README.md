@@ -6,8 +6,8 @@ Se podrá obtener información a cerca de los puestos que se encuentren registra
 para tener los que más te gustan.<br>
 Para una proxima ampliación, me gustaría que los usuarios puedan añadir sus propios comentarios a cerca de lo que les parece ese puesto en particular y darle una puntuación, también se podrán hacer pedidos para recoger en el puesto y contará con la división de la página por tipo de usuario.<br>
 Para poder acceder a la web tenemos este usuario de prueba:<br>
-**- Usuario: antonio@gmail.com<br>
-- Contraseña: 12345<br>**
+**Usuario: antonio@gmail.com<br>
+Contraseña: 12345**<br>
 Para poder acceder a la api tienes que estar logueado y con estos parámetros se pueden hacer las diferentes operaciones:<br>
 * Api: 'buenasPuedeProbarLaApi'<br>
 * Si se pone la dirección con la api-keye te devuelve información de todos los puestos: 
