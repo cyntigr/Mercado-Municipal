@@ -5,6 +5,16 @@ Mi proyecto es una aplicación web para un mercado municipal, en el cual te podr
 Se podrá obtener información a cerca de los puestos que se encuentren registrados en el mercado, y añadirlos a una lista de favoritos
 para tener los que más te gustan.<br>
 Para una proxima ampliación, me gustaría que los usuarios puedan añadir sus propios comentarios a cerca de lo que les parece ese puesto en particular y darle una puntuación, también se podrán hacer pedidos para recoger en el puesto y contará con la división de la página por tipo de usuario.<br>
+Para poder acceder a la web tenemos este usuario de prueba:
+**Usuario: antonio@gmail.com<br>
+Contraseña: 12345<br>**
+Para poder acceder a la api tienes que estar logueado y con estos parámetros se pueden hacer las diferentes operaciones:
+* Api:buenasPuedeProbarLaApi
+* Si se pone la dirección con la api-keye te devuelve información de todos los puestos: 
+http://localhost/mercadoMunicipal/api/read_api.php?apiKey=buenasPuedeProbarLaApi
+* Si en cambio pones la dirección de la api con el parámetro de id, nos devuelve información de un puesto concreto: http://localhost/mercadoMunicipal/api/read_api.php?apiKey=buenasPuedeProbarLaApi&id=1
+* Y la última operación consulta la información del usuario, si le mandas el parámetro de idUsuario relleno:
+http://localhost/mercadoMunicipal/api/read_api.php?apiKey=buenasPuedeProbarLaApi&idUsuario=si
 **Por Cintia García Ruiz** <br>
 **2º Desarrollo de Aplicaciones Web**
 
@@ -31,7 +41,7 @@ En esta página se visualiza la información de un puesto en concreto que se hay
 <img src="capturas/info.png" width="800px"><br>
 <img src="capturas/favoritos.png" width="800px"><br>
 
-*Favoritos
+* Favoritos
 <img src="capturas/pantallaFavorito.png" width="800px"><br>
 
 ## Página Perfil
